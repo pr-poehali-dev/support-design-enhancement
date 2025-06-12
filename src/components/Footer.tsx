@@ -1,28 +1,17 @@
 import Icon from "@/components/ui/icon";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const openWhatsApp = () => {
+    window.open("https://wa.me/79610574693", "_blank");
+  };
+
   const navigation = [
     { name: "Главная", href: "#hero" },
-    { name: "Возможности", href: "#features" },
-    { name: "О проекте", href: "#about" },
-    { name: "Поддержка", href: "#contact" },
-  ];
-
-  const resources = [
-    { name: "Документация", href: "https://docs.poehali.dev" },
-    { name: "GitHub", href: "#" },
-    { name: "Публикация", href: "https://docs.poehali.dev/deploy/publish" },
-    { name: "SEO настройки", href: "https://docs.poehali.dev/deploy/seo" },
-  ];
-
-  const social = [
-    {
-      name: "Telegram",
-      icon: "MessageCircle",
-      href: "https://t.me/+QgiLIa1gFRY4Y2Iy",
-    },
-    { name: "GitHub", icon: "Github", href: "#" },
-    { name: "Twitter", icon: "Twitter", href: "#" },
+    { name: "Услуги", href: "#services" },
+    { name: "Время работы", href: "#working-hours" },
+    { name: "Отзывы", href: "#reviews" },
+    { name: "Контакты", href: "#contact" },
   ];
 
   return (
@@ -31,28 +20,45 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl flex items-center justify-center">
-                <Icon name="Rocket" className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                <Icon name="Truck" className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold font-montserrat">Поехали!</h3>
+              <h3 className="text-2xl font-bold font-montserrat">
+                Доставка Калач-на-Дону
+              </h3>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              Платформа для создания современных веб-сайтов через простое
-              описание на русском языке. Быстрее конструкторов в 30 раз.
+              Быстрая и надежная доставка по городу. Работаем с понедельника по
+              пятницу с 12:00 до 19:30. Доставим все, что нужно!
             </p>
-            <div className="flex gap-4">
-              {social.map((item) => (
+
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3">
+                <Icon name="Phone" className="w-5 h-5 text-green-400" />
                 <a
-                  key={item.name}
-                  href={item.href}
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="tel:+79610574693"
+                  className="text-gray-300 hover:text-white"
                 >
-                  <Icon name={item.icon as any} className="w-5 h-5" />
+                  +7 961 057 46 93
                 </a>
-              ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <Icon name="Clock" className="w-5 h-5 text-green-400" />
+                <span className="text-gray-300">Пн-Пт: 12:00-19:30</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Icon name="MapPin" className="w-5 h-5 text-green-400" />
+                <span className="text-gray-300">г. Калач-на-Дону</span>
+              </div>
             </div>
+
+            <Button
+              onClick={openWhatsApp}
+              className="bg-green-600 hover:bg-green-700 text-white"
+            >
+              <Icon name="MessageCircle" className="mr-2 w-4 h-4" />
+              Заказать в WhatsApp
+            </Button>
           </div>
 
           <div>
@@ -72,41 +78,49 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-6">Ресурсы</h4>
-            <ul className="space-y-3">
-              {resources.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
+            <h4 className="font-semibold mb-6">Запрещено к доставке</h4>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center gap-2 text-red-400">
+                <Icon name="Ban" className="w-4 h-4" />
+                <span>Никотин и табак</span>
+              </li>
+              <li className="flex items-center gap-2 text-red-400">
+                <Icon name="ShieldX" className="w-4 h-4" />
+                <span>18+ товары</span>
+              </li>
+              <li className="flex items-center gap-2 text-red-400">
+                <Icon name="Wine" className="w-4 h-4" />
+                <span>Алкогольные напитки</span>
+              </li>
             </ul>
+
+            <div className="mt-6 p-4 bg-gray-800 rounded-lg">
+              <div className="flex items-center gap-2 text-green-400 mb-2">
+                <Icon name="Shield" className="w-4 h-4" />
+                <span className="font-semibold text-sm">
+                  Безопасная доставка
+                </span>
+              </div>
+              <p className="text-xs text-gray-400">
+                Соблюдаем все правила безопасности для защиты наших клиентов и
+                курьеров
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 mt-12">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2024 Поехали! Все права защищены.
+              © 2024 Доставка Калач-на-Дону. Все права защищены.
             </p>
-            <div className="flex gap-6 text-sm">
+            <div className="flex items-center gap-4 text-sm text-gray-400">
+              <span>Техподдержка:</span>
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                href="mailto:dostavkasites25@gmail.com"
+                className="hover:text-white transition-colors"
               >
-                Политика конфиденциальности
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                Условия использования
+                dostavkasites25@gmail.com
               </a>
             </div>
           </div>
