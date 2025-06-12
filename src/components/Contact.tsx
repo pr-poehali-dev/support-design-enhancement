@@ -32,7 +32,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     // Формируем mailto ссылку
-    const subject = `Техподдержка - ${formData.name}`;
+    const subject = `Техподдержка доставки - ${formData.name}`;
     const body = `Имя: ${formData.name}
 Email: ${formData.email}
 Телефон: ${formData.phone}
